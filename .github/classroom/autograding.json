@@ -1,0 +1,54 @@
+{
+  "tests": [
+    {
+      "name": "Hiding important stuff",
+      "setup": "",
+      "run": "make test",
+      "input": "5\r\n0 Wake up\r\n0 Do important stuff\r\n1 Less important stuff\r\n2 Other less important stuff\r\n3 Still more unimportant stuff\r\n",
+      "output": "Stack process order:\r\n Do important stuff\r\n Less important stuff\r\n Other less important stuff\r\n Still more unimportant stuff\r\n Wake up\r\nQueue process order:\r\n Wake up\r\n Do important stuff\r\n Less important stuff\r\n Other less important stuff\r\n Still more unimportant stuff",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Stuck in the stack",
+      "setup": "",
+      "run": "make test",
+      "input": "8\r\n0 Low priority\r\n0 Medium priority\r\n0 Max priority\r\n1 Very low priority\r\n2 Very low priority\r\n3 Very low priority\r\n4 Very low priority\r\n5 Very low priority\r\n",
+      "output": "Stack process order:\r\n Max priority\r\n Very low priority\r\n Very low priority\r\n Very low priority\r\n Very low priority\r\n Very low priority\r\n Medium priority\r\n Low priority\r\nQueue process order:\r\n Low priority\r\n Medium priority\r\n Max priority\r\n Very low priority\r\n Very low priority\r\n Very low priority\r\n Very low priority\r\n Very low priority",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Fooling the Queue",
+      "setup": "",
+      "run": "make test",
+      "input": "7\r\n0 Low priority\r\n0 Also low priority\r\n0 Still low priority\r\n0 Another low priority\r\n2 Do it now!\r\n3 Do it sometime\r\n5 Sometime\r\n",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Very late",
+      "setup": "",
+      "run": "make test",
+      "input": "5\r\n0 Do first\r\n5 Do later\r\n7 Do still later\r\n9 Do even later\r\n11 Is it bedtime?\r\n",
+      "output": "Stack process order:\r\n Do first\r\n Do later\r\n Do still later\r\n Do even later\r\n Is it bedtime?\r\nQueue process order:\r\n Do first\r\n Do later\r\n Do still later\r\n Do even later\r\n Is it bedtime?",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Check basic ordering",
+      "setup": "",
+      "run": "make test",
+      "input": "5\r\n0 Queue 1st/Stack last\r\n0 Queue 2nd/Stack 4th\r\n0 Queue 3rd/Stack 3rd\r\n0 Queue 4th/Stack 2nd\r\n0 Queue last/Stack 1st\r\n",
+      "output": "Stack process order:\r\n Queue last/Stack 1st\r\n Queue 4th/Stack 2nd\r\n Queue 3rd/Stack 3rd\r\n Queue 2nd/Stack 4th\r\n Queue 1st/Stack last\r\nQueue process order:\r\n Queue 1st/Stack last\r\n Queue 2nd/Stack 4th\r\n Queue 3rd/Stack 3rd\r\n Queue 4th/Stack 2nd\r\n Queue last/Stack 1st",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    }
+  ]
+}
