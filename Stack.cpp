@@ -21,7 +21,7 @@ void Stack::push(string value) {
 }
 
 string Stack::pop() {
-    LinkedListItem *item = list.removeLastItem();
+    LinkedListItem *item = list.removeFirstItem();
     if(item == nullptr)
         return "";
     return item->getItem();
