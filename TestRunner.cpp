@@ -50,8 +50,12 @@ void TestRunner::runTest() {
                 i--;
             }
         }
-        savedQueuePops += queue.pop() + "\n";
-        savedStackPops += stack.pop() + "\n";
+        string queuePop = queue.pop();
+        string stackPop = stack.pop();
+        if(queuePop != "")
+            savedQueuePops += queuePop + "\n";
+        if(stackPop != "")
+            savedStackPops += stackPop + "\n";
 
         timestamp++;
     }

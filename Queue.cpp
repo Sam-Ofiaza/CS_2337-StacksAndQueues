@@ -21,6 +21,9 @@ void Queue::push(string value) {
 }
 
 string Queue::pop() {
-    return list.removeLastItem()->getItem();
+    LinkedListItem *item = list.removeLastItem();
+    if(item == nullptr)
+        return "";
+    return item->getItem();
 }
 
