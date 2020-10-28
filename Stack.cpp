@@ -7,7 +7,7 @@
 using namespace std;
 
 Stack::Stack() {
-    LinkedList();
+    LinkedList list();
 }
 
 bool Stack::isEmpty() {
@@ -22,4 +22,8 @@ void Stack::push(string value) {
 
 string Stack::pop() {
     return list.removeFirstItem()->getItem();
+}
+
+void Stack::print() {
+    return list.printList();
 }

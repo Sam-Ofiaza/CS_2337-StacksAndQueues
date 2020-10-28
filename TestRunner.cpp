@@ -29,16 +29,32 @@ void TestRunner::runTest() {
 
         string inputLine;
         getline(cin, inputLine);
-        foo.message = inputLine.substr(1);
+        foo.message = inputLine.substr(0);
 
         tasks.push_back(foo);
-        //cout << "Timestamp: " << foo.timestamp << ", Message: " << foo.message << endl;
     }
 
-    Queue test1();
-    Stack test2();
+    Queue queue;
+    Stack stack;
+    int timestamp = 0;
+    string savedQueuePops = "Queue process order: \n";
+    string savedStackPops = "Stack process order: \n";
 
-    while(!(test1.isEmpty()) || !(test2.isEmpty()))
+    while(!tasks.empty() || !queue.isEmpty() || !stack.isEmpty()) {
+        for(int i = 0; i < tasks.size(); i++){
+            if(tasks.at(i).timestamp == timestamp){
+                queue.push(tasks.at(i).message);
+                stack.push(tasks.at(i).message);
+                tasks.erase(tasks.begin()+i);
+                tasks.shrink_to_fit();
+                i--;
+            }
+        }
+        savedQueuePops += queue.pop() + "\n";
+        savedStackPops += stack.pop() + "\n";
 
+        timestamp++;
     }
+
+    cout << savedStackPops << savedQueuePops;
 }
