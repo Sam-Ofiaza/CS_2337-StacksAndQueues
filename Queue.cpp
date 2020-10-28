@@ -24,8 +24,3 @@ string Queue::pop() {
     return list.removeLastItem()->getItem();
 }
 
-void Queue::print() {
-    return list.printList();
-}
-
-

@@ -19,8 +19,6 @@ public:
     void push(string value);
     string pop();
 
-    void print();
-
 private:
     LinkedList list;
 };

@@ -37,8 +37,8 @@ void TestRunner::runTest() {
     Queue queue;
     Stack stack;
     int timestamp = 0;
-    string savedQueuePops = "Queue process order: \n";
-    string savedStackPops = "Stack process order: \n";
+    string savedQueuePops = "Queue process order:\n";
+    string savedStackPops = "Stack process order:\n";
 
     while(!tasks.empty() || !queue.isEmpty() || !stack.isEmpty()) {
         for(int i = 0; i < tasks.size(); i++){
