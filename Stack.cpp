@@ -11,8 +11,9 @@ Stack::Stack() {
 }
 
 bool Stack::isEmpty() {
-    if(list.getLength() == 0)
+    if(list.getLength() == 0) {
         return true;
+    }
     return false;
 }
 
@@ -22,7 +23,8 @@ void Stack::push(string value) {
 
 string Stack::pop() {
     LinkedListItem *item = list.removeFirstItem();
-    if(item == nullptr)
+    if(item == nullptr) {
         return "";
+    }
     return item->getItem();
 }

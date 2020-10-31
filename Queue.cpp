@@ -11,8 +11,9 @@ Queue::Queue() {
 }
 
 bool Queue::isEmpty() {
-    if(list.getLength() == 0)
+    if(list.getLength() == 0) {
         return true;
+    }
     return false;
 }
 
@@ -22,8 +23,9 @@ void Queue::push(string value) {
 
 string Queue::pop() {
     LinkedListItem *item = list.removeLastItem();
-    if(item == nullptr)
+    if(item == nullptr) {
         return "";
+    }
     return item->getItem();
 }
 

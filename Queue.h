@@ -11,7 +11,7 @@
 using namespace std;
 
 class Queue {
-public:
+    public:
     Queue();
 
     bool isEmpty();
@@ -19,7 +19,7 @@ public:
     void push(string value);
     string pop();
 
-private:
+    private:
     LinkedList list;
 };
 

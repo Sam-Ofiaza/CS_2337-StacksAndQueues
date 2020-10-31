@@ -6,7 +6,7 @@
 #define STACK_AND_QUEUE_TEMPLATE_TESTRUNNER_H
 
 class TestRunner {
-public:
+    public:
     void runTest();
 };
 
